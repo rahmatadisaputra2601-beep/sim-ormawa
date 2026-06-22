@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard Ormawa</title>
+
+   <style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #e2e8f0;
+}
+
+/* LOGIN */
+#loginBox {
+    max-width: 320px;
+    margin: 120px auto;
+    text-align: center;
+    background: #111827;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+/* BUTTON */
+button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #3b82f6;
+    color: white;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+/* DASHBOARD */
+.header {
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: #111827;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #1f2937;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#error {
+    color: #f87171;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔐 LOGIN -->
+<div id="loginBox">
+    <h2>Login Admin</h2>
+
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="error"></p>
+</div>
+
+<!-- 📊 DASHBOARD -->
+<div id="app" style="display:none;">
+
+    <div class="header">
+        📊 Dashboard Ormawa
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h3>Total Anggota: <span id="total">0</span></h3>
+        </div>
+
+        <div class="card">
+            <div class="row">
+                <input type="text" id="nama" placeholder="Tambah anggota...">
+                <button onclick="tambah()">Tambah</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <ul id="list"></ul>
+        </div>
+
+        <button onclick="logout()" style="background:red;">Logout</button>
+
+    </div>
+</div>
+
+<script>
+
+function login() {
+    let pass = document.getElementById("password").value;
+    let errorBox = document.getElementById("error");
+
+    if (pass === "1234") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("app").style.display = "block";
+
+        localStorage.setItem("login", "true");
+        errorBox.innerText = "";
+    } else {
+        errorBox.innerText = "Password salah bro";
+    }
+}
+
+function logout() {
+    document.getElementById("loginBox").style.display = "block";
+    document.getElementById("app").style.display = "none";
+    localStorage.removeItem("login");
+}
+
+function getData() {
+    return JSON.parse(localStorage.getItem("anggota")) || [];
+}
+
+function saveData(data) {
+    localStorage.setItem("anggota", JSON.stringify(data));
+}
+
+function loadData() {
+    let data = getData();
+    let list = document.getElementById("list");
+
+    list.innerHTML = "";
+
+    data.forEach((nama, index) => {
+        let li = document.createElement("li");
+        li.textContent = (index + 1) + ". " + nama;
+
+        let btn = document.createElement("button");
+        btn.textContent = "Hapus";
+        btn.onclick = function () {
+            hapus(index);
+        };
+
+        li.appendChild(btn);
+        list.appendChild(li);
+    });
+
+    document.getElementById("total").innerText = data.length;
+}
+
+function tambah() {
+    let nama = document.getElementById("nama").value;
+
+    if (nama === "") return;
+
+    let data = getData();
+    data.push(nama);
+
+    saveData(data);
+    document.getElementById("nama").value = "";
+    loadData();
+}
+
+function hapus(index) {
+    let data = getData();
+    data.splice(index, 1);
+
+    saveData(data);
+    loadData();
+}
+
+window.onload = function () {
+    if (localStorage.getItem("login") === "true") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("app").style.display = "block";
+    }
+
+    loadData();
+};
+
+</script>
+
+</body>
+</html>
