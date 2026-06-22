@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -222,4 +223,214 @@ window.onload = function () {
 </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard Ormawa</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #1e293b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f1f5f9;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+
+        #loginBox {
+            max-width: 300px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 🔐 LOGIN -->
+<div id="loginBox">
+    <h2>Login Admin</h2>
+
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="error"></p>
+</div>
+
+<!-- 📊 DASHBOARD -->
+<div id="app" style="display:none;">
+
+    <div class="header">
+        📊 Dashboard Ormawa
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h3>Total Anggota: <span id="total">0</span></h3>
+        </div>
+
+        <div class="card">
+            <div class="row">
+                <input type="text" id="nama" placeholder="Tambah anggota...">
+                <button onclick="tambah()">Tambah</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <ul id="list"></ul>
+        </div>
+
+        <button onclick="logout()" style="background:red;">Logout</button>
+
+    </div>
+</div>
+
+<script>
+
+function login() {
+    let pass = document.getElementById("password").value;
+    let errorBox = document.getElementById("error");
+
+    if (pass === "1234") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("app").style.display = "block";
+
+        localStorage.setItem("login", "true");
+        errorBox.innerText = "";
+    } else {
+        errorBox.innerText = "Password salah bro";
+    }
+}
+
+function logout() {
+    document.getElementById("loginBox").style.display = "block";
+    document.getElementById("app").style.display = "none";
+    localStorage.removeItem("login");
+}
+
+function getData() {
+    return JSON.parse(localStorage.getItem("anggota")) || [];
+}
+
+function saveData(data) {
+    localStorage.setItem("anggota", JSON.stringify(data));
+}
+
+function loadData() {
+    let data = getData();
+    let list = document.getElementById("list");
+
+    list.innerHTML = "";
+
+    data.forEach((nama, index) => {
+        let li = document.createElement("li");
+        li.textContent = (index + 1) + ". " + nama;
+
+        let btn = document.createElement("button");
+        btn.textContent = "Hapus";
+        btn.onclick = function () {
+            hapus(index);
+        };
+
+        li.appendChild(btn);
+        list.appendChild(li);
+    });
+
+    document.getElementById("total").innerText = data.length;
+}
+
+function tambah() {
+    let nama = document.getElementById("nama").value;
+
+    if (nama === "") return;
+
+    let data = getData();
+    data.push(nama);
+
+    saveData(data);
+    document.getElementById("nama").value = "";
+    loadData();
+}
+
+function hapus(index) {
+    let data = getData();
+    data.splice(index, 1);
+
+    saveData(data);
+    loadData();
+}
+
+window.onload = function () {
+    if (localStorage.getItem("login") === "true") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("app").style.display = "block";
+    }
+
+    loadData();
+};
+
+</script>
+
+</body>
+>>>>>>> 0072fc68f4f3a2d86bd83678573e93c4b9536cda
 </html>
