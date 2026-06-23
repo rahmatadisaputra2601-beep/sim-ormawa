@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body onload="checkLogin(); render(); updateStats();">
 
 <div id="app">
 
@@ -13,33 +13,62 @@
     <div class="sidebar">
         <h2>🎓 Admin</h2>
 
-        <a class="menu active" onclick="showSection('home')">📊 Dashboard</a>
-        <a class="menu" onclick="showSection('anggota')">👥 Anggota</a>
-        <a class="menu" onclick="showSection('ormawa')">🏛️ Ormawa</a>
+        <a class="menu active" onclick="showSection('home', event)">📊 Dashboard</a>
+        <a class="menu" onclick="showSection('anggota', event)">👥 Anggota</a>
+        <a class="menu" onclick="showSection('ormawa', event)">🏛️ Ormawa</a>
         <a onclick="logout()">🚪 Logout</a>
     </div>
 
     <!-- MAIN -->
     <div class="main">
 
+        <!-- HOME -->
         <div id="home" class="section">
             <div class="card">
-                <h3>Total Anggota: <span id="total">0</span></h3>
+                <h3>Total: <span id="total">0</span></h3>
+            </div>
+
+            <div class="card">
+                <h3>BEM: <span id="bemCount">0</span></h3>
+                <h3>DPM: <span id="dpmCount">0</span></h3>
+                <h3>HMA: <span id="hmaCount">0</span></h3>
             </div>
         </div>
 
+        <!-- ANGGOTA -->
         <div id="anggota" class="section" style="display:none;">
+
             <div class="card">
-                <input type="text" id="nama" placeholder="Tambah anggota...">
+
+                <input id="nama" placeholder="Nama">
+                <input id="nim" placeholder="NIM">
+                <input id="prodi" placeholder="Prodi">
+
+                <select id="ormawa">
+                    <option>BEM</option>
+                    <option>DPM</option>
+                    <option>HMA</option>
+                </select>
+
                 <button onclick="tambah()">Tambah</button>
+
+                <button onclick="exportCSV()">Export CSV</button>
+
+            </div>
+
+            <div class="card">
+                <input id="search" placeholder="Cari nama / NIM">
             </div>
 
             <div class="card">
                 <ul id="list"></ul>
             </div>
+
         </div>
 
+        <!-- ORMAWA -->
         <div id="ormawa" class="section" style="display:none;">
+
             <div class="grid">
                 <div class="card">DPM</div>
                 <div class="card">BEM</div>
@@ -48,10 +77,10 @@
                 <div class="card">Mahadika</div>
                 <div class="card">Duta Muda</div>
             </div>
+
         </div>
 
     </div>
-
 </div>
 
 <div id="toast" class="toast"></div>
