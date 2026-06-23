@@ -6,50 +6,98 @@
 </head>
 
 <body>
-
 <!-- ================= LANDING ================= -->
 <div id="landing">
 
+    <!-- NAVBAR -->
     <div class="navbar">
-        <div class="logo">🎓 Ormawa Portal</div>
+        <div class="logo">🎓 SIM ORMAWA</div>
     </div>
 
-    <div class="hero">
-        <h1>Selamat Datang di Portal Ormawa</h1>
-        <p>Sistem Informasi Organisasi Mahasiswa</p>
+    <!-- HERO -->
+    <section class="hero">
 
-        <button onclick="masukLogin()">
-            Masuk Sistem
-        </button>
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="assets/campus.mp4" type="video/mp4">
+        </video>
 
-        <div class="brand">
-            <h1>SIM ORMAWA</h1>
-            <p>Student Organization Management System</p>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1>Selamat Datang di Portal Ormawa</h1>
+            <p>Sistem Informasi Organisasi Mahasiswa</p>
+
+            <button onclick="masukLogin()">
+                Masuk Sistem
+            </button>
         </div>
+
+    </section>
+
+    <!-- BRAND -->
+    <section class="brand">
+        <h1>SIM ORMAWA</h1>
+        <p>Student Organization Management System</p>
+    </section>
+
+    <!-- ORMAWA -->
+    <section class="ormawa-section">
 
         <div class="section-title">
             <h2>Organisasi Mahasiswa</h2>
-            <p>Pilih organisasi</p>
+            <p>Pilih organisasi mahasiswa</p>
         </div>
 
         <div class="ormawa-grid">
-            <div class="ormawa-card">🏛️ DPM</div>
-            <div class="ormawa-card">🔥 BEM</div>
-            <div class="ormawa-card">🎓 HMA</div>
-            <div class="ormawa-card">⚙️ HMM</div>
-            <div class="ormawa-card">⚡ Mahadika</div>
-            <div class="ormawa-card">🌟 Duta Muda</div>
+
+            <div class="ormawa-card">
+                <img src="assets/dpm.jpeg" alt="Logo DPM">
+                <h3>DPM</h3>
+            </div>
+
+            <div class="ormawa-card">
+                <h3>🔥 BEM</h3>
+            </div>
+
+            <div class="ormawa-card">
+                <h3>🎓 HMA</h3>
+            </div>
+
+            <div class="ormawa-card">
+                <h3>⚙️ HMM</h3>
+            </div>
+
+            <div class="ormawa-card">
+                <h3>⚡ Mahadika</h3>
+            </div>
+
+            <div class="ormawa-card">
+                <h3>🌟 Duta Muda</h3>
+            </div>
+
         </div>
 
-        <div class="highlight">
-            <div class="card">⚡ CRUD System</div>
-            <div class="card">🎓 Ormawa Management</div>
-            <div class="card">📊 Admin Dashboard</div>
+    </section>
+
+    <!-- FITUR -->
+    <section class="highlight">
+
+        <div class="card">
+            ⚡ CRUD System
         </div>
 
-    </div> <!-- hero -->
+        <div class="card">
+            🎓 Ormawa Management
+        </div>
 
-</div> <!-- landing -->
+        <div class="card">
+            📊 Admin Dashboard
+        </div>
+
+    </section>
+
+</div>
+<!-- ================= END LANDING ================= -->
 
 <!-- ================= LOGIN ================= -->
 <div id="loginBox" style="display:none;">

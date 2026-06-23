@@ -192,3 +192,125 @@ li {
 button:hover {
     transform: scale(1.03);
 }
+.ormawa-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.ormawa-card h3 {
+    margin: 0;
+    color: white;
+}
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    color: white;
+}
+
+.hero-content p {
+    color: #ddd;
+}
+.hero-content {
+    animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.brand{
+    width: 100%;
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.brand h1{
+    font-size: 42px;
+    margin: 0;
+    color: white;
+}
+
+.brand p{
+    margin-top: 10px;
+    color: #94a3b8;
+    font-size: 18px;
+}
+
+.ormawa-section{
+    padding:30px 20px 80px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:700;
+}
+
+.highlight{
+    max-width:1000px;
+    margin:auto;
+    padding:0 20px 80px;
+}
+
+@media(max-width:768px){
+
+    .ormawa-grid{
+        grid-template-columns:1fr;
+    }
+
+    .highlight{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content h1{
+        font-size:34px;
+    }
+
+}
