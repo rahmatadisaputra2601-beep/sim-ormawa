@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>SIM ORMAWA | Student Organization Management System</title>
-    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -27,8 +27,9 @@
             <h1>Selamat Datang di Portal Ormawa</h1>
             <p>Sistem Informasi Organisasi Mahasiswa</p>
 
-            <button onclick="masukLogin()">
-                Masuk Sistem
+           <a href="login.html">
+    <button>Masuk Sistem</button>
+</a>
             </button>
         </div>
 
@@ -51,7 +52,7 @@
         <div class="ormawa-grid">
 
             <div class="ormawa-card">
-                <img src="assets/dpm.jpeg" alt="Logo DPM">
+                <img src="assets/img/dpm.jpeg" alt="Logo DPM">
                 <h3>DPM</h3>
             </div>
 
@@ -98,73 +99,8 @@
 
 </div>
 <!-- ================= END LANDING ================= -->
-
-<!-- ================= LOGIN ================= -->
-<div id="loginBox" style="display:none;">
-    <h2>Login Admin</h2>
-
-    <input type="password" id="password" placeholder="Password">
-
-    <button onclick="login()">
-        Login
-    </button>
-
-    <p id="error"></p>
-</div>
-
-<!-- ================= DASHBOARD ================= -->
-<div id="app" style="display:none;">
-
-    <div class="sidebar">
-        <h2>🎓 Admin</h2>
-
-        <a class="menu active" onclick="showSection('home', event)">📊 Dashboard</a>
-        <a class="menu" onclick="showSection('anggota', event)">👥 Anggota</a>
-        <a class="menu" onclick="showSection('ormawa', event)">🏛️ Ormawa</a>
-        <a onclick="logout()">🚪 Logout</a>
-    </div>
-
-    <div class="main">
-
-        <div id="home" class="section">
-            <div class="card">
-                <h3>Total Anggota: <span id="total">0</span></h3>
-            </div>
-        </div>
-
-        <div id="anggota" class="section" style="display:none;">
-            <div class="card">
-                <input type="text" id="nama" placeholder="Tambah anggota...">
-                <button onclick="tambah()">Tambah</button>
-            </div>
-
-            <div class="card">
-                <ul id="list"></ul>
-            </div>
-        </div>
-
-        <div id="ormawa" class="section" style="display:none;">
-            <div class="grid">
-                <div class="card">DPM</div>
-                <div class="card">BEM</div>
-                <div class="card">HMA</div>
-                <div class="card">HMM</div>
-                <div class="card">Mahadika</div>
-                <div class="card">Duta Muda</div>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-<div id="toast" class="toast"></div>
-
-<footer class="footer">
-    <p>© 2026 SIM ORMAWA - Built by Rahmat Adi Saputra</p>
-</footer>
-
-<script src="script.js"></script>
-
+ <a href="login.html">
+ </a>
+ <script src="assets/js/script.js"></script>
 </body>
 </html>

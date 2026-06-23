@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard SIM ORMAWA</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>🎓 Admin</h2>
+
+        <a class="menu active" onclick="showSection('home')">📊 Dashboard</a>
+        <a class="menu" onclick="showSection('anggota')">👥 Anggota</a>
+        <a class="menu" onclick="showSection('ormawa')">🏛️ Ormawa</a>
+        <a onclick="logout()">🚪 Logout</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <div id="home" class="section">
+            <div class="card">
+                <h3>Total Anggota: <span id="total">0</span></h3>
+            </div>
+        </div>
+
+        <div id="anggota" class="section" style="display:none;">
+            <div class="card">
+                <input type="text" id="nama" placeholder="Tambah anggota...">
+                <button onclick="tambah()">Tambah</button>
+            </div>
+
+            <div class="card">
+                <ul id="list"></ul>
+            </div>
+        </div>
+
+        <div id="ormawa" class="section" style="display:none;">
+            <div class="grid">
+                <div class="card">DPM</div>
+                <div class="card">BEM</div>
+                <div class="card">HMA</div>
+                <div class="card">HMM</div>
+                <div class="card">Mahadika</div>
+                <div class="card">Duta Muda</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="assets/js/script.js"></script>
+
+</body>
+</html>
