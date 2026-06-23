@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ormawa Portal</title>
+    <title>SIM ORMAWA | Student Organization Management System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,38 +16,57 @@
 
     <div class="hero">
         <h1>Selamat Datang di Portal Ormawa</h1>
-        <p>Sistem informasi organisasi mahasiswa</p>
-        <button onclick="masukLogin()">Masuk Sistem</button>
-    </div>
+        <p>Sistem Informasi Organisasi Mahasiswa</p>
 
-    <div class="section-title">
-        <h2>Organisasi Mahasiswa</h2>
-        <p>Pilih organisasi</p>
-    </div>
+        <button onclick="masukLogin()">
+            Masuk Sistem
+        </button>
 
-    <div class="ormawa-grid">
-        <div class="ormawa-card">🏛️ DPM</div>
-        <div class="ormawa-card">🔥 BEM</div>
-        <div class="ormawa-card">🎓 HMA</div>
-        <div class="ormawa-card">⚙️ HMM</div>
-        <div class="ormawa-card">⚡ Mahadika</div>
-        <div class="ormawa-card">🌟 Duta Muda</div>
-    </div>
+        <div class="brand">
+            <h1>SIM ORMAWA</h1>
+            <p>Student Organization Management System</p>
+        </div>
 
-</div>
+        <div class="section-title">
+            <h2>Organisasi Mahasiswa</h2>
+            <p>Pilih organisasi</p>
+        </div>
+
+        <div class="ormawa-grid">
+            <div class="ormawa-card">🏛️ DPM</div>
+            <div class="ormawa-card">🔥 BEM</div>
+            <div class="ormawa-card">🎓 HMA</div>
+            <div class="ormawa-card">⚙️ HMM</div>
+            <div class="ormawa-card">⚡ Mahadika</div>
+            <div class="ormawa-card">🌟 Duta Muda</div>
+        </div>
+
+        <div class="highlight">
+            <div class="card">⚡ CRUD System</div>
+            <div class="card">🎓 Ormawa Management</div>
+            <div class="card">📊 Admin Dashboard</div>
+        </div>
+
+    </div> <!-- hero -->
+
+</div> <!-- landing -->
 
 <!-- ================= LOGIN ================= -->
 <div id="loginBox" style="display:none;">
     <h2>Login Admin</h2>
+
     <input type="password" id="password" placeholder="Password">
-    <button onclick="login()">Login</button>
+
+    <button onclick="login()">
+        Login
+    </button>
+
     <p id="error"></p>
 </div>
 
 <!-- ================= DASHBOARD ================= -->
 <div id="app" style="display:none;">
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
         <h2>🎓 Admin</h2>
 
@@ -57,7 +76,6 @@
         <a onclick="logout()">🚪 Logout</a>
     </div>
 
-    <!-- MAIN -->
     <div class="main">
 
         <div id="home" class="section">
@@ -89,9 +107,16 @@
         </div>
 
     </div>
+
 </div>
 
-<script src="script.js"></script>
 <div id="toast" class="toast"></div>
+
+<footer class="footer">
+    <p>© 2026 SIM ORMAWA - Built by Rahmat Adi Saputra</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>

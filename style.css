@@ -170,3 +170,25 @@ li {
     opacity: 1;
     transform: translateY(0);
 }
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: #94a3b8;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.highlight {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 900px;
+    margin: 30px auto;
+}
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.03);
+}
