@@ -7,14 +7,17 @@ function login() {
     let pass = document.getElementById("password").value;
 
     if (pass === "1234") {
+        showToast("Login berhasil");
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("app").style.display = "flex";
         document.getElementById("landing").style.display = "none";
         document.getElementById("error").innerText = "";
     } else {
+        showToast("Password salah ❌");
+    }
         document.getElementById("error").innerText = "Password salah bro";
     }
-}
+
 
 function logout() {
     document.getElementById("app").style.display = "none";
@@ -73,6 +76,7 @@ function loadData() {
 }
 
 function tambah() {
+    showToast("Data ditambah");
     let nama = document.getElementById("nama").value;
     if (!nama) return;
 
@@ -86,11 +90,24 @@ function tambah() {
 }
 
 function hapus(i) {
+     showToast("Data dihapus");
+}
     let data = getData();
     data.splice(i, 1);
 
     saveData(data);
     loadData();
-}
+
 
 window.onload = loadData;
+function showToast(msg) {
+    let t = document.getElementById("toast");
+    t.innerText = msg;
+    t.classList.add("show");
+
+    setTimeout(() => {
+        t.classList.remove("show");
+    }, 2000);
+}
+
+
